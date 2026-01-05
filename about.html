@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Me - GrozyLabs</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111a22",
+                        "surface-dark": "#192633",
+                        "border-dark": "#233648",
+                        "text-secondary": "#92adc9"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111a22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #233648;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324d67;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden antialiased">
+    <div class="relative flex flex-col w-full min-h-screen">
+        <!-- Navigation -->
+        <div
+            class="w-full flex justify-center border-b border-solid border-b-border-dark bg-background-dark sticky top-0 z-50">
+            <div class="max-w-[1280px] w-full px-4 md:px-10">
+                <header class="flex items-center justify-between whitespace-nowrap py-3">
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="size-8 text-primary">
+                            <svg class="w-full h-full" fill="none" viewbox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">GrozyLabs</h2>
+                    </div>
+                    <div class="hidden md:flex flex-1 justify-end gap-8">
+                        <div class="flex items-center gap-8">
+                            <a class="text-text-secondary hover:text-white transition-colors text-sm font-medium leading-normal"
+                                href="index.html">Home</a>
+                            <a class="text-text-secondary hover:text-white transition-colors text-sm font-medium leading-normal"
+                                href="index.html#work">Projects</a>
+                            <a class="text-white text-sm font-medium leading-normal" href="about.html">About</a>
+                            <a class="text-text-secondary hover:text-white transition-colors text-sm font-medium leading-normal"
+                                href="contact.html">Contact</a>
+                        </div>
+                        <a href="contact.html"
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                            <span class="truncate">Get in Touch</span>
+                        </a>
+                    </div>
+                    <!-- Mobile Menu Icon -->
+                    <div id="mobile-menu-btn" class="md:hidden text-white cursor-pointer z-50">
+                        <span class="material-symbols-outlined">menu</span>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="hidden absolute top-16 left-0 w-full bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800 p-4 md:hidden flex-col gap-4 shadow-xl z-40">
+            <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                href="index.html">Home</a>
+            <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                href="index.html#work">Projects</a>
+            <a class="block py-2 text-white font-medium bg-primary rounded px-2" href="about.html">About</a>
+            <a href="contact.html" class="block py-2 text-primary font-bold">Get in Touch</a>
+        </div>
+        <style>
+            .fade-in-up {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .fade-in-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+        <div class="flex flex-col items-center w-full flex-1">
+            <!-- Hero Section -->
+            <div class="w-full flex justify-center py-10 md:py-20 px-4 md:px-10">
+                <div class="max-w-[1024px] w-full flex flex-col gap-10 md:gap-16 md:flex-row items-center">
+                    <!-- Text Content -->
+                    <div class="flex flex-col gap-6 flex-1 text-center md:text-left order-2 md:order-1">
+                        <div class="flex flex-col gap-3">
+                            <span class="text-primary font-bold tracking-widest text-sm uppercase">About the
+                                Founder</span>
+                            <h1
+                                class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em] fade-in-up">
+                                Designing the Future, <br />
+                                <span
+                                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-300">One
+                                    Pixel at a Time</span>
+                            </h1>
+                            <h2
+                                class="text-text-secondary text-lg font-normal leading-relaxed mt-2 max-w-[500px] mx-auto md:mx-0">
+                                Hi, I'm Shubham Tiwari. The multidisciplinary mind behind GrozyLabs. I build digital
+                                products that
+                                bridge the gap between engineering logic and aesthetic beauty.
+                            </h2>
+                        </div>
+                        <div class="flex gap-4 justify-center md:justify-start pt-2">
+                            <a href="index.html#work"
+                                class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-blue-600 transition-all text-white text-base font-bold shadow-lg shadow-blue-500/20">
+                                View My Work
+                            </a>
+                            <button onclick="document.getElementById('journey').scrollIntoView({behavior: 'smooth'})"
+                                class="flex items-center justify-center rounded-lg h-12 px-6 bg-surface-dark border border-border-dark hover:border-primary/50 text-white text-base font-medium transition-all">
+                                Read My Story
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Hero Image -->
+                    <div class="flex-1 order-1 md:order-2 flex justify-center md:justify-end relative">
+                        <div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full z-0 opacity-40"></div>
+                        <div
+                            class="relative z-10 w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border border-border-dark bg-surface-dark shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <div class="w-full h-full bg-cover bg-center" data-alt="Portrait of Shubham Tiwari"
+                                style="background-image: url('images/profile.jpg');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Philosophy Section -->
+            <div
+                class="w-full flex justify-center bg-surface-dark/30 py-16 md:py-24 border-y border-border-dark px-4 md:px-10">
+                <div class="max-w-[1024px] w-full flex flex-col gap-12">
+                    <div class="flex flex-col gap-2 md:text-center">
+                        <h2 class="text-white text-3xl font-bold leading-tight">My Philosophy</h2>
+                        <p class="text-text-secondary max-w-2xl mx-auto">I believe in a holistic approach to product
+                            creation, where code and design live in harmony, not in silos.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div
+                            class="group flex flex-col gap-4 rounded-xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                            <div
+                                class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-[28px]">person</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-xl font-bold">User-Centric</h3>
+                                <p class="text-text-secondary text-sm leading-relaxed">Every decision starts with the
+                                    user's needs. I prioritize intuitive flows over complex features.</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="group flex flex-col gap-4 rounded-xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                            <div
+                                class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-[28px]">visibility</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-xl font-bold">Pixel Perfect</h3>
+                                <p class="text-text-secondary text-sm leading-relaxed">Obsessed with details, spacing,
+                                    and visual hierarchy. Good design is invisible; bad design is everywhere.</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="group flex flex-col gap-4 rounded-xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                            <div
+                                class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-[28px]">code</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-xl font-bold">Code + Design</h3>
+                                <p class="text-text-secondary text-sm leading-relaxed">Fluent in both Figma and React. I
+                                    bridge the gap so nothing gets lost in translation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- The Toolkit Section -->
+            <div class="w-full flex justify-center py-16 md:py-24 px-4 md:px-10">
+                <div class="max-w-[1024px] w-full flex flex-col gap-10">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-white text-2xl font-bold leading-tight">The Toolkit</h2>
+                        <div class="h-[1px] flex-1 bg-border-dark ml-6 hidden md:block"></div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">palette</span>
+                            <span class="text-text-secondary text-sm font-medium">Figma</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">html</span>
+                            <span class="text-text-secondary text-sm font-medium">HTML5</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">css</span>
+                            <span class="text-text-secondary text-sm font-medium">Tailwind</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">javascript</span>
+                            <span class="text-text-secondary text-sm font-medium">React</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">terminal</span>
+                            <span class="text-text-secondary text-sm font-medium">Node.js</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">dataset</span>
+                            <span class="text-text-secondary text-sm font-medium">SQL</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">smartphone</span>
+                            <span class="text-text-secondary text-sm font-medium">Flutter</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">code</span>
+                            <span class="text-text-secondary text-sm font-medium">Python</span>
+                        </div>
+                        <!-- Tool Item -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-3 p-4 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-white">javascript</span>
+                            <span class="text-text-secondary text-sm font-medium">Javascript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Timeline/Milestones Section -->
+            <div id="journey"
+                class="w-full flex justify-center py-16 px-4 md:px-10 bg-gradient-to-b from-background-dark to-surface-dark/20">
+                <div class="max-w-[800px] w-full flex flex-col gap-12">
+                    <h2 class="text-white text-3xl font-bold text-center">Journey So Far</h2>
+                    <div class="relative pl-8 md:pl-0">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-border-dark -ml-[1px]"></div>
+                        <!-- Milestone 1 -->
+                        <div class="relative flex flex-col md:flex-row gap-8 mb-12 group">
+                            <div class="md:w-1/2 md:text-right flex flex-col md:items-end">
+                                <span class="text-primary font-bold text-lg">2024 - Present</span>
+                                <h3 class="text-white text-xl font-bold mt-1">Project Manager & Founder</h3>
+                                <p class="text-text-secondary text-sm mt-2 max-w-xs">Working as a Project Manager in a
+                                    Leading MNC Bank and Founded GrozyLabs.</p>
+                            </div>
+                            <div
+                                class="absolute left-8 md:left-1/2 top-0 size-4 rounded-full bg-primary -ml-[8px] ring-4 ring-background-dark group-hover:ring-primary/20 transition-all">
+                            </div>
+                            <div class="md:w-1/2"></div> <!-- Spacer -->
+                        </div>
+                        <!-- Milestone 2 -->
+                        <div class="relative flex flex-col md:flex-row gap-8 mb-12 group">
+                            <div class="md:w-1/2"></div> <!-- Spacer -->
+                            <div
+                                class="absolute left-8 md:left-1/2 top-0 size-4 rounded-full bg-surface-dark border-2 border-primary -ml-[8px] ring-4 ring-background-dark group-hover:bg-primary transition-all">
+                            </div>
+                            <div class="md:w-1/2 flex flex-col">
+                                <span class="text-primary font-bold text-lg">2022 - 2024</span>
+                                <h3 class="text-white text-xl font-bold mt-1">Product Company</h3>
+                                <p class="text-text-secondary text-sm mt-2 max-w-xs">Worked in a Product Company,
+                                    driving feature development and user experience.</p>
+                            </div>
+                        </div>
+                        <!-- Milestone 3 -->
+                        <div class="relative flex flex-col md:flex-row gap-8 group">
+                            <div class="md:w-1/2 md:text-right flex flex-col md:items-end">
+                                <span class="text-primary font-bold text-lg">2017 - 2022</span>
+                                <h3 class="text-white text-xl font-bold mt-1">Indian Bank</h3>
+                                <p class="text-text-secondary text-sm mt-2 max-w-xs">Worked in Indian Bank, gaining
+                                    extensive experience in financial systems and banking operations.</p>
+                            </div>
+                            <div
+                                class="absolute left-8 md:left-1/2 top-0 size-4 rounded-full bg-surface-dark border-2 border-primary -ml-[8px] ring-4 ring-background-dark group-hover:bg-primary transition-all">
+                            </div>
+                            <div class="md:w-1/2"></div> <!-- Spacer -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA Footer -->
+
+            <!-- Simple Footer -->
+            <footer class="w-full border-t border-border-dark py-8 px-10">
+                <div
+                    class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-text-secondary text-sm">
+                    <p>© 2024 GrozyLabs. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a class="hover:text-white transition-colors" href="#">Twitter</a>
+                        <a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+                        <a class="hover:text-white transition-colors" href="#">GitHub</a>
+                        <a class="hover:text-white transition-colors" href="#">Dribbble</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

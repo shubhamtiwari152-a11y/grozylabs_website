@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GrozyLabs - Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden transition-colors duration-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root">
+        <header
+            class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+            <div class="layout-container flex h-full grow flex-col">
+                <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center">
+                    <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                        <div class="flex items-center justify-between whitespace-nowrap py-4">
+                            <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                                <div class="size-8 text-primary">
+                                    <span class="material-symbols-outlined text-3xl">science</span>
+                                </div>
+                                <h2
+                                    class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">
+                                    GrozyLabs</h2>
+                            </a>
+                            <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                                <div class="flex items-center gap-9">
+                                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+                                        href="#work">Work</a>
+                                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+                                        href="about.html">About</a>
+                                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+                                        href="#">Labs</a>
+                                </div>
+                                <a href="contact.html"
+                                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg shadow-primary/20">
+                                    <span class="truncate">Get in touch</span>
+                                </a>
+                            </div>
+                            <div id="mobile-menu-btn"
+                                class="md:hidden text-slate-900 dark:text-white cursor-pointer z-50">
+                                <span class="material-symbols-outlined">menu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden absolute top-16 left-0 w-full bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800 p-4 md:hidden flex-col gap-4 shadow-xl z-40">
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="#work">Work</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="about.html">About</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="#">Labs</a>
+                <a href="contact.html" class="block py-2 text-primary font-bold">Get in touch</a>
+            </div>
+        </header>
+        <style>
+            .fade-in-up {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .fade-in-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-12 md:py-20">
+                <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                    <div class="@container">
+                        <div class="flex flex-col-reverse lg:flex-row gap-12 items-center">
+                            <div
+                                class="flex flex-col gap-6 flex-1 text-center lg:text-left items-center lg:items-start">
+                                <div
+                                    class="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 py-1">
+                                    <span class="relative flex h-2 w-2">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                    </span>
+                                    <span class="text-primary text-xs font-bold uppercase tracking-wider">Available for
+                                        hire</span>
+                                </div>
+                                <h1
+                                    class="text-slate-900 dark:text-white text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.033em] fade-in-up">
+                                    Experiments in <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Code
+                                        &amp; Design</span>
+                                </h1>
+                                <h2
+                                    class="text-slate-600 dark:text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-[600px]">
+                                    I build apps, products, and services that solve real problems. From trading
+                                    algorithms to hardware navigation interfaces.
+                                </h2>
+                                <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                                    <a href="#work"
+                                        class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-primary/90 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/25 transition-all hover:scale-105">
+                                        View Projects
+                                    </a>
+                                    <a href="about.html"
+                                        class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-bold leading-normal tracking-[0.015em] transition-all">
+                                        About Me
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex-1 w-full max-w-[500px] lg:max-w-none">
+                                <div
+                                    class="relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-gray-200 dark:border-gray-800 group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent z-10">
+                                    </div>
+                                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                        data-alt="Abstract 3D rendering of digital blocks and code visualization"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvZvUFbawqwEjIHXQzo1Iy2O1XHHQLENWzAW4rgPL1YrE1zj-JaI-Uo6niQSS5cumEqie7zg5Nl4BwDO4fYO6TfxUetsyT-1mTebZIyoAePbDnKQgmvRtUMqJU4Mgeto1nhzRXgRc-PHLnlCEGjXIOeZuCa8nq-HGqWnjikwJMGyoN9fNyApj_U3cWjHh6RIuuG42OgD74rZX4gYeYWvb1bnM1hdXA_vfTIKoi7X1Ue9awBMFszwTnYNcBxjfLtbY0dP-ay6Z5WRI");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-6 left-6 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl max-w-[200px]">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="material-symbols-outlined text-primary">terminal</span>
+                                            <span
+                                                class="text-xs font-bold uppercase text-slate-500 dark:text-slate-400">Latest
+                                                Build</span>
+                                        </div>
+                                        <p class="text-sm font-bold text-slate-900 dark:text-white">Crypto Trading Bot
+                                            v2.0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-y border-gray-200 dark:border-gray-800 bg-background-light/50 dark:bg-background-dark/50">
+            <div class="layout-container flex w-full flex-col">
+                <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-4">
+                    <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                            <button data-filter="all"
+                                class="filter-btn flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-5 transition-transform active:scale-95 shadow-md shadow-primary/20">
+                                <p class="text-sm font-bold">All Projects</p>
+                            </button>
+                            <button data-filter="software"
+                                class="filter-btn flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 px-5 hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+                                <span class="material-symbols-outlined text-[18px] text-slate-500">code</span>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Software</p>
+                            </button>
+                            <button data-filter="hardware"
+                                class="filter-btn flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 px-5 hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+                                <span class="material-symbols-outlined text-[18px] text-slate-500">memory</span>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Hardware</p>
+                            </button>
+                            <button data-filter="mobile"
+                                class="filter-btn flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 px-5 hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+                                <span class="material-symbols-outlined text-[18px] text-slate-500">smartphone</span>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Mobile</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="work" class="layout-container flex grow flex-col bg-slate-50 dark:bg-[#0b1218]">
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-16">
+                <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                    <div class="flex items-end justify-between mb-10">
+                        <div>
+                            <h3 class="text-slate-900 dark:text-white text-3xl font-bold mb-2">Featured Work</h3>
+                            <p class="text-slate-500 dark:text-slate-400">A selection of my recent experiments and
+                                production apps.</p>
+                        </div>
+
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <a href="projects/trading-bot.html" data-category="software"
+                            class="project-card group flex flex-col bg-white dark:bg-[#182430] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 fade-in-up">
+                            <div class="relative w-full aspect-video overflow-hidden">
+                                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Dashboard interface of an algorithmic trading bot showing charts"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQfLBouTKCFBlu_ONZr-0WPupTwtp0m75FwwjLebqc8L3JGM3SC0T8A2p-gDQdhwilKJdFVeTSiwVnqu6W3UMdSV5fMvrcMa6w13a4my6mc-3pt2SWbsrcEfWXXy1c5KjicEW4yOBRRF9IfnTKD8QdneMgdICjP51x4VVXsbU7R9bEssHXwfdauIU3t_2owapxx5jqvcqKdwCgwH0p1HaPX1EvIp7Ts_HFpOQwVliZLFQwYW9ef_sIPuY6iMzNY4fI3he-2XkWGEs");'>
+                                </div>
+                                <div
+                                    class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded">
+                                    PYTHON
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col gap-3 flex-1">
+                                <div class="flex justify-between items-start">
+                                    <p class="text-primary text-xs font-bold tracking-wider uppercase">Fintech</p>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+                                </div>
+                                <h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Algorithmic
+                                    Trading Bot</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">
+                                    High-frequency trading system optimized for crypto markets using machine learning
+                                    for trend prediction.</p>
+                                <div class="flex gap-2 mt-2">
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="Python">Py</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="Docker">Dk</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="AWS">AWS</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/inventory-manager.html" data-category="software mobile"
+                            class="project-card group flex flex-col bg-white dark:bg-[#182430] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 fade-in-up">
+                            <div class="relative w-full aspect-video overflow-hidden">
+                                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Modern home inventory dashboard on a laptop screen"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBR5EDA3plRNI5SS8Xmw4T0l2hQGF84TZmJJO0wl6E6_LVgXDDAzOBQLNSzIKjG7kQjA4Hqd8HQb0B4V9JQzoV7FZOcV5HybRY-1GUVyBOeqqfjImPG-wGwbexdZhE_Oz4ZmljpqAB9HtrcdSBZar9FUymxHKU-RqmBKwtjLp8fKfNZX_JB1ZS8RF-Qo9f6_Kfl6bUm7kv6svfCoQ8K5Wrd2j4P6HYbiZKdVK79Bq5oPdMaOJwnsFS8c2YYN2are4r9EI7r-onbVTs");'>
+                                </div>
+                                <div
+                                    class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded">
+                                    SaaS
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col gap-3 flex-1">
+                                <div class="flex justify-between items-start">
+                                    <p class="text-primary text-xs font-bold tracking-wider uppercase">Web App</p>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+                                </div>
+                                <h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Home
+                                    Inventory Manager</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">Full-stack
+                                    SaaS application for tracking household assets, generating insurance reports, and
+                                    estimating value.</p>
+                                <div class="flex gap-2 mt-2">
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="React">Re</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="Node.js">Nd</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="PostgreSQL">Pg</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/bike-navigation.html" data-category="hardware"
+                            class="project-card group flex flex-col bg-white dark:bg-[#182430] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 fade-in-up">
+                            <div class="relative w-full aspect-video overflow-hidden">
+                                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Close up of a bike handlebar with a digital navigation device"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzYm23kLVTMwMzW0ov9CS8guNHUuYpFWpqPQIhFVq0UuSf0Gb53P9QGxBeaQKEsUMaL1IjHb45niJ9Xwt4P7Z9U_6fhKbkZoZBGrRVikM2rXbDECUMkX_eVwxVdDib8ILt-ZhwdkC6JwlsS_XLOgQM1kj5Xy3Mx78fMWBvInkbmLlqeTOHdSyw7HMCgpDOVzia52ul3RTwQq14C6Ct6Z1ahWBGRnPIK_-PgjZb6C-8Smqb1j29HorKZcTpitH99KI0G5aZemC4lbc");'>
+                                </div>
+                                <div
+                                    class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded">
+                                    IOT
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col gap-3 flex-1">
+                                <div class="flex justify-between items-start">
+                                    <p class="text-primary text-xs font-bold tracking-wider uppercase">Hardware</p>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+                                </div>
+                                <h4 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Bike
+                                    Navigation Device</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">Physical
+                                    GPS interface design for urban cyclists focusing on visibility and minimal
+                                    distraction.</p>
+                                <div class="flex gap-2 mt-2">
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="C++">C++</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="Arduino">Ar</div>
+                                    <div class="size-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] text-slate-500"
+                                        title="3D Print">3D</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex justify-center mt-12">
+                        <button
+                            class="flex min-w-[140px] items-center justify-center rounded-lg h-10 px-6 border border-gray-200 dark:border-gray-700 hover:border-primary text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-bold leading-normal transition-colors">
+                            Load More Projects
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="relative layout-container flex flex-col border-t border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+                style="background-image: linear-gradient(#137fec 1px, transparent 1px), linear-gradient(90deg, #137fec 1px, transparent 1px); background-size: 40px 40px;">
+            </div>
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-20 relative z-10">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                    <div class="@container">
+                        <div class="flex flex-col items-center justify-center gap-6 px-4 py-10 text-center">
+                            <div class="flex flex-col gap-4 items-center max-w-[720px]">
+                                <h2
+                                    class="text-slate-900 dark:text-white tracking-tight text-3xl md:text-5xl font-black leading-tight">
+                                    Have an idea? Let's build it.
+                                </h2>
+                                <p
+                                    class="text-slate-600 dark:text-slate-300 text-lg font-normal leading-normal max-w-[500px]">
+                                    I'm currently open for collaborations and freelance opportunities. Let's turn your
+                                    concept into code.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+                                <a href="contact.html"
+                                    class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-primary/90 text-white text-base font-bold leading-normal shadow-lg shadow-primary/25 transition-transform hover:-translate-y-1">
+                                    Contact Me
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0b1218] py-12">
+            <div class="layout-container flex flex-col items-center justify-center px-4 md:px-10">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-primary text-2xl">science</span>
+                    <span class="text-slate-900 dark:text-white text-lg font-bold">GrozyLabs</span>
+                </div>
+                <div class="flex gap-8 mb-8">
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="#">Twitter</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="#">GitHub</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="#">Dribbble</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="#">LinkedIn</a>
+                </div>
+                <p class="text-slate-400 dark:text-slate-600 text-sm">© 2023 GrozyLabs. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

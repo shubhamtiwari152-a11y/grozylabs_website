@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Trading Bots - GrozyLabs</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"],
+                        "mono": ["monospace"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden antialiased selection:bg-primary/30">
+    <!-- Top Navigation -->
+    <header
+        class="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <div class="flex items-center justify-center size-8 rounded-lg bg-primary text-white">
+                        <span class="material-symbols-outlined text-xl">terminal</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">GrozyLabs</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                        href="../index.html#work">Projects</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                        href="#">Services</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-slate-600 dark:text-slate-300"
+                        href="../about.html">About</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a class="hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-blue-600 rounded-lg transition-all shadow-[0_0_15px_rgba(19,127,236,0.3)]"
+                        href="../contact.html">
+                        <span>Contact</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                    <div id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white cursor-pointer z-50">
+                        <span class="material-symbols-outlined">menu</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden absolute top-16 left-0 w-full bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800 p-4 md:hidden flex-col gap-4 shadow-xl z-40">
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="../index.html#work">Projects</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="#">Services</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="../about.html">About</a>
+                <a href="../contact.html" class="block py-2 text-primary font-bold">Contact</a>
+            </div>
+            <style>
+                .fade-in-up {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+
+                .fade-in-up.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            </style>
+        </div>
+    </header>
+    <main class="flex flex-col min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-20 lg:pt-32 lg:pb-24 overflow-hidden">
+            <!-- Background Gradients -->
+            <div
+                class="absolute top-0 right-0 -translate-y-12 translate-x-1/4 size-[500px] rounded-full bg-primary/10 blur-[100px] pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 translate-y-12 -translate-x-1/4 size-[400px] rounded-full bg-purple-500/10 blur-[100px] pointer-events-none">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div class="flex flex-col gap-6 text-left">
+                        <!-- Breadcrumb/Pill -->
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-surface-dark w-fit">
+                            <span class="size-2 rounded-full bg-green-500 animate-pulse"></span>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Live
+                                Project • v2.4.0</span>
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] fade-in-up">
+                            Automated <br />
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Crypto
+                                Trading</span>
+                        </h1>
+                        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
+                            A high-frequency algorithmic trading system capable of executing complex strategies with
+                            sub-millisecond latency. Built to remove emotional bias from investment decisions.
+                        </p>
+                        <!-- Chips -->
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <div
+                                class="px-3 py-1.5 rounded-lg bg-surface-dark border border-gray-800 text-xs font-medium text-slate-300">
+                                Python</div>
+                            <div
+                                class="px-3 py-1.5 rounded-lg bg-surface-dark border border-gray-800 text-xs font-medium text-slate-300">
+                                CCXT</div>
+                            <div
+                                class="px-3 py-1.5 rounded-lg bg-surface-dark border border-gray-800 text-xs font-medium text-slate-300">
+                                WebSockets</div>
+                            <div
+                                class="px-3 py-1.5 rounded-lg bg-surface-dark border border-gray-800 text-xs font-medium text-slate-300">
+                                AWS Lambda</div>
+                            <div
+                                class="px-3 py-1.5 rounded-lg bg-surface-dark border border-gray-800 text-xs font-medium text-slate-300">
+                                Docker</div>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <a href="../contact.html"
+                                class="flex items-center justify-center gap-2 h-12 px-8 rounded-lg bg-primary text-white font-bold hover:bg-blue-600 transition-all">
+                                <span>Contact Me</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <!-- Abstract glow behind image -->
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-surface-dark shadow-2xl">
+                            <!-- Header of the fake window -->
+                            <div class="h-8 bg-[#111] flex items-center px-4 gap-2 border-b border-gray-800">
+                                <div class="size-3 rounded-full bg-red-500"></div>
+                                <div class="size-3 rounded-full bg-yellow-500"></div>
+                                <div class="size-3 rounded-full bg-green-500"></div>
+                                <div class="ml-auto text-xs text-gray-500 font-mono">dashboard.py — running</div>
+                            </div>
+                            <!-- Image -->
+                            <div class="aspect-video w-full bg-cover bg-center"
+                                data-alt="Futuristic trading dashboard interface displaying candlesticks and data"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAf1G_On6_hXEDMZbc4gKiZFDDqm08edU83rFiTfYk5hEQg_YEWxljgFlqf4mUS0g-MsxTYyO--z3dxg30iYwkrJ0QV2BU6uEfVF6q0tATET43GhFya7ySzmfRl6OG-UF0ZszqMjfJ7rxrenqvzdN_bEY0johH5Dmxs1atmANXs2MoaQsLjoOJpEqedROWIWwP_z7z2vTF59pRbCK9tKsColEdqoVPWINwl8DBvaaWOsgNXa-J3sN7M1XkFNAgf6OMSQ9bOx3hBlUo');">
+                                <div class="w-full h-full bg-slate-900/40 backdrop-blur-[1px]"></div>
+                            </div>
+                            <!-- Overlay Stats on image -->
+                            <div
+                                class="absolute bottom-6 left-6 right-6 p-4 bg-[#111]/90 backdrop-blur-md border border-gray-700 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase">24h Volume</p>
+                                    <p class="text-lg font-bold text-white">$4,293,122</p>
+                                </div>
+                                <div class="h-8 w-[1px] bg-gray-700"></div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase">Active Bots</p>
+                                    <p class="text-lg font-bold text-white">12</p>
+                                </div>
+                                <div class="h-8 w-[1px] bg-gray-700"></div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase">Net Profit</p>
+                                    <p class="text-lg font-bold text-green-400">+12.4%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Section -->
+        <section class="border-y border-gray-200 dark:border-gray-800 bg-background-light dark:bg-[#0b1219]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-bold text-primary">0.5s</span>
+                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Execution Latency</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-bold text-white">1.2M+</span>
+                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Data Points Analyzed</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-bold text-white">99.9%</span>
+                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Uptime on AWS</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-bold text-green-400">14%</span>
+                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Average Monthly ROI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The Challenge & Solution -->
+        <section class="py-20 lg:py-28 bg-background-light dark:bg-background-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Left: Header -->
+                    <div class="lg:col-span-4 flex flex-col gap-6">
+                        <h2 class="text-3xl lg:text-4xl font-bold leading-tight">
+                            The Human <br /> Bottleneck
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Emotional trading often leads to substantial losses. Furthermore, manual execution is simply
+                            too slow to capitalize on arbitrage opportunities in volatile crypto markets.
+                        </p>
+                        <div class="p-6 rounded-lg bg-red-500/10 border border-red-500/20">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-red-500">warning</span>
+                                <h4 class="font-bold text-red-500">Problem</h4>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                80% of retail traders lose money due to FOMO, panic selling, and inability to monitor
+                                24/7 markets.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Right: Solution Features -->
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 1 -->
+                        <div
+                            class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">bolt</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Microsecond Execution</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Utilizing WebSockets for real-time order book updates, allowing the bot to react to
+                                price changes faster than any human.
+                            </p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">candlestick_chart</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Multi-Strategy Engine</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Runs Grid Trading, DCA, and Mean Reversion strategies simultaneously across different
+                                trading pairs.
+                            </p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">security</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Risk Management</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Hard-coded stop-losses and take-profit levels. Automated position sizing based on
+                                portfolio volatility.
+                            </p>
+                        </div>
+                        <!-- Card 4 -->
+                        <div
+                            class="p-6 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">cloud_sync</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Cloud Native</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Deployed on AWS Lambda for serverless efficiency or EC2 for persistent websocket
+                                connections.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Technical Deep Dive / Code Snippet -->
+        <section class="py-20 bg-surface-dark relative border-y border-gray-800">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(#3c4b5d 1px, transparent 1px); background-size: 24px 24px;">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6">Under the Hood</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="size-6 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-white">
+                                        1</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold">Signal Generation</h4>
+                                    <p class="text-sm text-slate-400 mt-1">
+                                        The bot subscribes to multiple exchange WebSocket streams to aggregate order
+                                        book depth. It calculates indicators like RSI and MACD in real-time using Pandas
+                                        and TA-Lib.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="size-6 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-white">
+                                        2</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold">Order Execution</h4>
+                                    <p class="text-sm text-slate-400 mt-1">
+                                        Once a signal is confirmed, orders are routed through the CCXT library, which
+                                        normalizes API calls across 100+ exchanges (Binance, Coinbase, Kraken).
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="size-6 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-white">
+                                        3</div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold">Post-Trade Analysis</h4>
+                                    <p class="text-sm text-slate-400 mt-1">
+                                        Every trade is logged to a PostgreSQL database. A separate microservice analyzes
+                                        trade performance and adjusts strategy parameters dynamically.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Code Block -->
+                    <div class="w-full lg:w-1/2">
+                        <div
+                            class="rounded-xl overflow-hidden bg-[#0d1117] border border-gray-700 shadow-2xl font-mono text-sm">
+                            <div
+                                class="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-gray-700">
+                                <span class="text-xs text-gray-400">strategy_engine.py</span>
+                                <div class="flex gap-2">
+                                    <div class="size-2 rounded-full bg-gray-600"></div>
+                                    <div class="size-2 rounded-full bg-gray-600"></div>
+                                </div>
+                            </div>
+                            <div class="p-4 overflow-x-auto text-gray-300">
+                                <pre><code><span class="text-purple-400">class</span> <span class="text-yellow-200">GridStrategy</span>(<span class="text-yellow-200">Strategy</span>):
+    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(<span class="text-red-300">self</span>, exchange, symbol):
+        <span class="text-red-300">self</span>.exchange = exchange
+        <span class="text-red-300">self</span>.grids = []
+
+    <span class="text-purple-400">async def</span> <span class="text-blue-400">on_tick</span>(<span class="text-red-300">self</span>, ticker):
+        current_price = ticker[<span class="text-green-300">'last'</span>]
+        
+        <span class="text-gray-500"># Check for buy signals</span>
+        <span class="text-purple-400">if</span> current_price &lt; <span class="text-red-300">self</span>.lower_band:
+            <span class="text-purple-400">await</span> <span class="text-red-300">self</span>.place_limit_order(
+                side=<span class="text-green-300">'buy'</span>, 
+                amount=<span class="text-red-300">self</span>.position_size
+            )
+            <span class="text-purple-400">print</span>(<span class="text-green-300">f"Executing BUY at {current_price}"</span>)
+            
+        <span class="text-gray-500"># Dynamic rebalancing logic</span>
+        <span class="text-purple-400">if</span> <span class="text-red-300">self</span>.volatility &gt; <span class="text-orange-300">0.05</span>:
+            <span class="text-red-300">self</span>.adjust_grid_spacing()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tech Stack -->
+        <section class="py-20 bg-background-light dark:bg-background-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-bold mb-10">Technology Stack</h2>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <!-- Tech Card 1 -->
+                    <div
+                        class="flex items-center gap-3 px-6 py-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <img alt="Python" class="w-8 h-8" data-alt="Python logo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsdNTLCw3q93SnAS3wqDNHjUHbhssVHUsGLlwbbjfk14UY_8NleM0LJ8NZbgmU_kPCYI_Gl6pQJIlYmEAWUzoV5Iy10ZenOPsUyVTuINd9nMcXg5X5KVZ7VRMvZLtp2AgdK1Q2WrVUmccIbZLi7-aQDco0sdLRkx_2W5AXHecbAW1C2o8IaQUemy5ohvz4n_5XZVNdxG0yj8GJQtAD-YwVkINDaMyC0ZaTFPFKhD6_uTzd79cjrJrwzzaozQWqxs8uBae23lW1HRg" />
+                        <span class="font-bold">Python</span>
+                    </div>
+                    <!-- Tech Card 2 -->
+                    <div
+                        class="flex items-center gap-3 px-6 py-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <img alt="Pandas" class="w-8 h-8" data-alt="Pandas logo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw6C2QxCz56haCHjR8lS1OwV1Cy4sgtrCL2FhZh1yHK_UIuRxW5kpuOdoGt4W_U0JA0vFxrbodrNF4km8eb_6JAagLu95rS_UnOByyG5Ub9anoquDtuZs9rUI4_Vup8ouupv2kt_KlxIMv3nvIWXi_maHvuww6A80Vuv_eLR_runFXLG9bK4LwpmqIiCX3KOtlv1CcSV8BEykPnYDUOx_i_0C3oKlS_CotDtFpJy1B6hzRRzuWuDQ5_UrknN-uq0LT54rIDyi3CsA" />
+                        <span class="font-bold">Pandas</span>
+                    </div>
+                    <!-- Tech Card 3 -->
+                    <div
+                        class="flex items-center gap-3 px-6 py-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <img alt="Docker" class="w-8 h-8" data-alt="Docker logo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHIemR6UufYVvYxarh7UZwz90_6v7nLM9YAe3bWTVEwygcOV7tl2q765a-uUANSRwUp57epFv_hK1umKJceKZBgm55nVvFZnMrDE4qM1R_OAQfZb1VORXLc-H-3LJAABZF4ZuFQgSJFek56lJkWPof9UTrELB3cneSI4yORHaUbk5kXKMBXtvXo0mxx9T-AQbMybLHLJhu8LIdHZeV_Qehfz68jtUDh8kaiWaUScyDsIvcQScbW2jB70kcPHfkFdRoOG75TC13Pa8" />
+                        <span class="font-bold">Docker</span>
+                    </div>
+                    <!-- Tech Card 4 -->
+                    <div
+                        class="flex items-center gap-3 px-6 py-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <!-- Custom AWS icon or placeholder -->
+                        <div
+                            class="w-8 h-8 bg-orange-500 rounded flex items-center justify-center text-white text-xs font-bold">
+                            AWS</div>
+                        <span class="font-bold">Lambda</span>
+                    </div>
+                    <!-- Tech Card 5 -->
+                    <div
+                        class="flex items-center gap-3 px-6 py-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+                        <img alt="PostgreSQL" class="w-8 h-8" data-alt="PostgreSQL logo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJrl9vip_-QQTssLGuziFbtUWuNwSAEzfgTGJcA2g9iBWl0AbSNm5_FG6erZNHL7pMRZSIz9FefNn3J7_ZrxxD1tdOIhtCRiTfvgDCR0hHAiBYFX8vBtjFYx3zD-x7a71QYoDKfUcjpofPeJSnbaePkCbrB5PEhIbUAHVLfzmF5QhpwR9civBJl3Fwt1D-4uFguRbOZzP4RxTW5jIgKevaz5UIGN2TOHZVbljWNp2B_zI76Ig4iSL9zVtAlgs2DxT_hUPeguCar28" />
+                        <span class="font-bold">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA / Footer -->
+        <section class="py-20 border-t border-gray-200 dark:border-gray-800 bg-surface-dark">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to automate your strategy?</h2>
+                <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+                    I build custom trading bots tailored to your specific parameters and risk tolerance. Let's discuss
+                    how we can improve your execution.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="../contact.html"
+                        class="flex items-center justify-center h-12 px-8 rounded-lg border border-gray-600 text-white font-bold hover:bg-gray-800 transition-all">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer class="py-8 bg-background-dark border-t border-gray-800">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 text-slate-400">
+                    <span class="font-bold text-white">GrozyLabs</span>
+                    <span>© 2024</span>
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-slate-500 hover:text-white transition-colors" href="#">Twitter</a>
+                    <a class="text-slate-500 hover:text-white transition-colors" href="#">GitHub</a>
+                    <a class="text-slate-500 hover:text-white transition-colors" href="#">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

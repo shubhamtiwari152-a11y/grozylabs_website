@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Home Inventory App - GrozyLabs</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-b-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-10 py-3">
+            <a href="../index.html" class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+                <div class="size-8 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-3xl">inventory_2</span>
+                </div>
+                <h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">GrozyLabs
+                </h2>
+            </a>
+            <div class="flex flex-1 justify-end gap-8">
+                <div class="hidden md:flex items-center gap-9">
+                    <a class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../index.html">Home</a>
+                    <a class="text-primary text-sm font-medium leading-normal" href="../index.html#work">Projects</a>
+                    <a class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../about.html">About</a>
+                    <a class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../contact.html">Contact</a>
+                </div>
+                <div id="mobile-menu-btn" class="md:hidden cursor-pointer text-[#0d141b] dark:text-white z-50">
+                    <span class="material-symbols-outlined">menu</span>
+                </div>
+            </div>
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden absolute top-16 left-0 w-full bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800 p-4 md:hidden flex-col gap-4 shadow-xl z-40">
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="../index.html">Home</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="../index.html#work">Projects</a>
+                <a class="block py-2 text-slate-600 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-primary"
+                    href="../about.html">About</a>
+                <a href="../contact.html" class="block py-2 text-primary font-bold">Contact</a>
+            </div>
+            <style>
+                .fade-in-up {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+
+                .fade-in-up.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            </style>
+        </header>
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="px-5 md:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                    <div class="flex flex-wrap gap-2 px-4 py-4">
+                        <a class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal hover:underline"
+                            href="../index.html">Home</a>
+                        <span class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+                        <a class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal hover:underline"
+                            href="../index.html#work">Projects</a>
+                        <span class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+                        <span class="text-[#0d141b] dark:text-white text-sm font-medium leading-normal">Inventory
+                            App</span>
+                    </div>
+                    <div class="@container">
+                        <div
+                            class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row-reverse items-center">
+                            <div class="w-full @[864px]:w-1/2 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/5] rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-white dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 bg-cover bg-center"
+                                    data-alt="High fidelity mobile app mockup showing inventory dashboard on a smartphone screen"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5xTGIICA4daB-CwFejJeG1kw5gMqA0KQhwc8CTNKkO5iM6JRy2yi7rEOs-W8HrLsV6nnFtYeDoqG5OtdV_5V5l8E_pSsSf5rUIpGERf7zpXAUN72dIBfFPFL4yVyRr-p_ETVCFppf689QRSHohFbF8FU_1briHY7g9FmNGEgWqRtA4YVaOpDd2L2WNXpboN9mvKGH-gcB6lwdUxwN-Cwftssu1eFPVDX636GA3vWmGV0EgnIi5flBAD-4TzZ5mQfQyS88_lZF1-4");'>
+                                    <div class="absolute inset-0 bg-black/10"></div>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center @[864px]:w-1/2">
+                                <div class="flex flex-col gap-2 text-left">
+                                    <div
+                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 w-fit">
+                                        <span class="text-xs font-bold text-primary uppercase tracking-wide">Mobile
+                                            Application</span>
+                                    </div>
+                                    <h1
+                                        class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl fade-in-up">
+                                        Home Inventory Manager
+                                    </h1>
+                                    <h2
+                                        class="text-[#0d141b] dark:text-gray-300 text-base font-normal leading-relaxed mt-2">
+                                        Organize your life, one item at a time. A comprehensive solution for tracking
+                                        personal belongings for insurance claims, moving, and peace of mind.
+                                    </h2>
+                                </div>
+                                <div class="flex flex-wrap gap-3">
+                                    <button
+                                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary hover:bg-blue-600 transition-colors text-slate-50 text-base font-bold leading-normal tracking-[0.015em]">
+                                        <span class="truncate">View Live Demo</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 mt-4">
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white dark:bg-[#1a2632] p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+                            <div
+                                class="flex flex-col gap-1 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-700 pb-4 md:pb-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="material-symbols-outlined text-primary text-xl">person</span>
+                                    <p
+                                        class="text-[#4c739a] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+                                        Role</p>
+                                </div>
+                                <p class="text-[#0d141b] dark:text-white text-lg font-medium">Designer, Solution
+                                    Architect, Developer</p>
+                            </div>
+                            <div
+                                class="flex flex-col gap-1 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-700 pb-4 md:pb-0 md:pl-6">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                                    <p
+                                        class="text-[#4c739a] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+                                        Duration</p>
+                                </div>
+                                <p class="text-[#0d141b] dark:text-white text-lg font-medium">4 Weeks</p>
+                            </div>
+                            <div class="flex flex-col gap-1 md:pl-6">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="material-symbols-outlined text-primary text-xl">build</span>
+                                    <p
+                                        class="text-[#4c739a] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+                                        Tools</p>
+                                </div>
+                                <p class="text-[#0d141b] dark:text-white text-lg font-medium">Figma, React Native,
+                                    System Design</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="px-4">
+                            <h2
+                                class="text-[#0d141b] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] pb-4">
+                                The Challenge</h2>
+                            <div
+                                class="bg-white dark:bg-[#1a2632] p-8 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+                                <p class="text-[#0d141b] dark:text-gray-300 text-lg leading-relaxed">
+                                    An AI-powered application designed to store, organize, and reduce wastage. It offers
+                                    smart suggestions and a comprehensive feature set to manage your household inventory
+                                    efficiently.
+
+                                    <br /><br />
+                                    The challenge was to create a frictionless mobile experience that encourages users
+                                    to catalog their items quickly, providing peace of mind without the administrative
+                                    burden.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 px-4">
+                        <h2
+                            class="text-[#0d141b] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] pb-6">
+                            Key Features</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                class="flex gap-4 p-6 bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group">
+                                <div
+                                    class="shrink-0 size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined">qr_code_scanner</span>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-lg font-bold text-[#0d141b] dark:text-white">Barcode Scanning</h3>
+                                    <p class="text-[#4c739a] dark:text-gray-400 text-sm leading-normal">Instantly
+                                        populate item details by scanning barcodes, leveraging an external product
+                                        database API.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex gap-4 p-6 bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group">
+                                <div
+                                    class="shrink-0 size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined">cloud_upload</span>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-lg font-bold text-[#0d141b] dark:text-white">Cloud Sync</h3>
+                                    <p class="text-[#4c739a] dark:text-gray-400 text-sm leading-normal">Securely backup
+                                        inventory data to the cloud, ensuring access from multiple devices and safe
+                                        recovery.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex gap-4 p-6 bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group">
+                                <div
+                                    class="shrink-0 size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined">receipt_long</span>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-lg font-bold text-[#0d141b] dark:text-white">Export Reports</h3>
+                                    <p class="text-[#4c739a] dark:text-gray-400 text-sm leading-normal">Generate PDF or
+                                        CSV reports for insurance claims instantly, complete with photos and estimated
+                                        values.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex gap-4 p-6 bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group">
+                                <div
+                                    class="shrink-0 size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined">notification_important</span>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-lg font-bold text-[#0d141b] dark:text-white">Expiry Alerts</h3>
+                                    <p class="text-[#4c739a] dark:text-gray-400 text-sm leading-normal">Set reminders
+                                        for warranty expirations or perishable items to keep your home managed
+                                        efficiently.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 px-4">
+                        <div class="flex items-center justify-between pb-6">
+                            <h2
+                                class="text-[#0d141b] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                                App Interface</h2>
+                            <div class="flex gap-2">
+                                <div
+                                    class="size-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 text-[#0d141b] dark:text-white">
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </div>
+                                <div
+                                    class="size-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 text-[#0d141b] dark:text-white">
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="flex flex-col gap-3">
+                                <div class="w-full aspect-[9/16] bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700 relative group"
+                                    data-alt="Mobile app screen showing the dashboard">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                        <p class="text-white font-medium">Dashboard Overview</p>
+                                    </div>
+                                    <div class="w-full h-full bg-cover bg-center"
+                                        style='background-image: url("../images/inventory-dashboard.jpg");'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <div class="w-full aspect-[9/16] bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700 relative group"
+                                    data-alt="Mobile app screen showing the inventory list">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                        <p class="text-white font-medium">Inventory List</p>
+                                    </div>
+                                    <div class="w-full h-full bg-cover bg-center"
+                                        style='background-image: url("../images/inventory-list.jpg");'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <div class="w-full aspect-[9/16] bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700 relative group"
+                                    data-alt="Mobile app screen showing home members">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                        <p class="text-white font-medium">Home Members</p>
+                                    </div>
+                                    <div class="w-full h-full bg-cover bg-center"
+                                        style='background-image: url("../images/inventory-members.jpg");'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-16 mb-20 px-4">
+                        <h2
+                            class="text-[#0d141b] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] pb-6">
+                            Technologies Used</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="px-4 py-2 rounded-full bg-white dark:bg-[#1a2632] border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-blue-500"></span> React Native
+                            </div>
+                            <div
+                                class="px-4 py-2 rounded-full bg-white dark:bg-[#1a2632] border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-blue-700"></span> TypeScript
+                            </div>
+                            <div
+                                class="px-4 py-2 rounded-full bg-white dark:bg-[#1a2632] border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-yellow-500"></span> Firebase
+                            </div>
+                            <div
+                                class="px-4 py-2 rounded-full bg-white dark:bg-[#1a2632] border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-green-500"></span> Node.js
+                            </div>
+                            <div
+                                class="px-4 py-2 rounded-full bg-white dark:bg-[#1a2632] border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 shadow-sm flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-purple-500"></span> Redux Toolkit
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer
+                class="w-full bg-white dark:bg-background-dark border-t border-[#e7edf3] dark:border-gray-800 py-10 px-10 md:px-40">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[960px] mx-auto">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">inventory_2</span>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">© 2023 GrozyLabs. All rights
+                            reserved.</p>
+                    </div>
+                    <div class="flex gap-6">
+                        <a href="trading-bot.html"
+                            class="text-sm font-bold text-[#0d141b] dark:text-white hover:text-primary transition-colors">Previous
+                            Project</a>
+                        <a href="bike-navigation.html"
+                            class="text-sm font-bold text-primary hover:text-blue-700 transition-colors">Next
+                            Project</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
